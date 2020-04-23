@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>List of Pizzas</title>
+</head>
+<body>
+<h1>List of Pizzas</h1>
+<h3>By. Niko Hautala</h3>
+	<table>
+		<tr>
+			<th>Id</th>
+			<th>Nimi</th>
+			<th>Hinta</th>
+			<th>Pohja</th>
+			<th>Täyte(1)</th>
+			<th>Täyte(2)</th>
+		</tr>
+		<tr th:each="pizza : ${pizzas}">
+		
+			<td th:text="${pizza.id}">id</td>
+			<td th:text="${pizza.nimi}">Nimi</td>
+			<td th:text="${pizza.hinta}">Hinta</td>
+			<td th:text="${pizza.pohja>}?${pizza.täyte}:'Null'">Pohja</td>
+			<td th:text="${pizza.täyte>}?${pizza.täyte}:'Null'">Täyte(1)</td>
+			<td th:text="${pizza.täyte>}?${pizza.täyte}:'Null'">Täyte(2)</td>
+			</tr>
+	</table>
+</body>
+</html>
