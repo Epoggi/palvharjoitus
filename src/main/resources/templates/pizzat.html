@@ -21,9 +21,8 @@
 			<td th:text="${pizza.id}">id</td>
 			<td th:text="${pizza.nimi}">Nimi</td>
 			<td th:text="${pizza.hinta}">Hinta</td>
-			<td th:text="${pizza.pohja>}?${pizza.täyte}:'Null'">Pohja</td>
+			<td th:text="${pizza.pohja>}?${pizza.pohja}:'Null'">Pohja</td>
 			<td th:text="${pizza.täyte>}?${pizza.täyte}:'Null'">Täyte(1)</td>
-			<td th:text="${pizza.täyte>}?${pizza.täyte}:'Null'">Täyte(2)</td>
 			</tr>
 	</table>
 </body>

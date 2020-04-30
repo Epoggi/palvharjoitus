@@ -1,4 +1,4 @@
-package hh.swd20.omaharjoitusNH.web;
+  package hh.swd20.omaharjoitusNH.web;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

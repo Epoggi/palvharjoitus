@@ -98,10 +98,10 @@ public class BookstoreApplication {
 			poRep.save(new Pohja("Vegepohja", "lak"));
 			
 			log.info("Pizzat");
-			piRep.save(new Pizza("Suomalainen", 7.50, poRep.findById(4).get(0)), aRep.findById(1));
-			piRep.save(new Pizza("Italialainen",8.50,poRep.findById(5).get(0)), aRep.findById(1));
-			piRep.save(new Pizza("Karppaaja", 10.00,poRep.findById(6).get(0)), aRep.findById(1));
-			piRep.save(new Pizza("Vegeilijä", 15.00, poRep.findById(7).get(0)), aRep.findById(1));
+			piRep.save(new Pizza("Suomalainen", 7.50, poRep.findByNimi("Ruispohja").get(0), aRep.findByNimi("Ananas").get(0)));
+			piRep.save(new Pizza("Italialainen",8.50,poRep.findByNimi("Vehnäpohja").get(0), aRep.findByNimi("Ananas").get(0)));
+			piRep.save(new Pizza("Karppaaja", 10.00,poRep.findByNimi("Munapohja").get(0), aRep.findByNimi("Ananas").get(0)));
+			piRep.save(new Pizza("Vegeilijä", 15.00, poRep.findByNimi("Vegepohja").get(0), aRep.findByNimi("Ananas").get(0)));
 			
 			
 			log.info("fetch all pizzas");

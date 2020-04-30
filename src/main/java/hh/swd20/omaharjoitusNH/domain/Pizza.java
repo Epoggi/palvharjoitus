@@ -84,7 +84,7 @@ public class Pizza {
 			this.ainekset = ainekset;
 		}
 
-		public Pizza(long id, String nimi, double hinta, Pohja pohja, Ainekset ainekset) {
+		public Pizza(String nimi, double hinta, Pohja pohja, Ainekset ainekset) {
 			super();
 			this.id = id;
 			this.nimi = nimi;
