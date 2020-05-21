@@ -21,9 +21,13 @@
 			<td th:text="${pizza.id}">id</td>
 			<td th:text="${pizza.nimi}">Nimi</td>
 			<td th:text="${pizza.hinta}">Hinta</td>
-			<td th:text="${pizza.pohja>}?${pizza.pohja}:'Null'">Pohja</td>
-			<td th:text="${pizza.täyte>}?${pizza.täyte}:'Null'">Täyte(1)</td>
+			<td th:text="${pizza.pohja}?${pizza.pohja.nimi}:'Null'">Pohja</td>
+			<!---->  <td th:text="${pizza.aines}?${pizza.aines.nimi}:'Null'">Täyte(1)</td>
+			<td sec:authorize="hasRole('ADMIN')"><a th:href="@{/deletepizza/{id}(id=${pizza.id})}">Delete</a></td>
+			<td sec:authorize="hasRole('ADMIN')"><a th:href="@{/editpizza/{id}(id=${pizza.id})}">Edit</a></td>
+		
 			</tr>
 	</table>
+	<a href="/pizzalomake">Luo Pizza</a>
 </body>
 </html>

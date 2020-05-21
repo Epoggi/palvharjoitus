@@ -10,7 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
 @Entity
-public class Ainekset {
+public class Aines {
 	@Id
 	@GeneratedValue (strategy=GenerationType.AUTO)
 	private long id;
@@ -19,13 +19,13 @@ public class Ainekset {
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "pohja")
 	private List<Pizza> pizzat;
 
-	public Ainekset() {
+	public Aines() {
 		super();
 		this.nimi = null;
 		this.sisalto = null;
 	}
 
-	public Ainekset(String nimi, String sisalto) {
+	public Aines(String nimi, String sisalto) {
 		super();
 		this.nimi = nimi;
 		this.sisalto = sisalto;
@@ -60,7 +60,7 @@ public class Ainekset {
 
 	@Override
 	public String toString() {
-		return "Ainekset [nimi=" + nimi + ", sisalto=" + sisalto + "]";
+		return "Aines [nimi=" + nimi + ", sisalto=" + sisalto + "]";
 	}
 	
 	

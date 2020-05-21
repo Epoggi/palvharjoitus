@@ -42,7 +42,7 @@ public class Pizza {
 		@ManyToOne
 		@JsonIgnore
 		@JoinColumn(name = "ainesid")
-		private Ainekset ainekset;
+		private Aines aines;
 
 		public long getId() {
 			return id;
@@ -76,21 +76,21 @@ public class Pizza {
 			this.pohja = pohja;
 		}
 
-		public Ainekset getAinekset() {
-			return ainekset;
+		public Aines getAines() {
+			return aines;
 		}
 
-		public void setAinekset(Ainekset ainekset) {
-			this.ainekset = ainekset;
+		public void setAines(Aines aines) {
+			this.aines = aines;
 		}
 
-		public Pizza(String nimi, double hinta, Pohja pohja, Ainekset ainekset) {
+		public Pizza(String nimi, double hinta, Pohja pohja, Aines aines) {
 			super();
 			this.id = id;
 			this.nimi = nimi;
 			this.hinta = hinta;
 			this.pohja = pohja;
-			this.ainekset = ainekset;
+			this.aines = aines;
 		}
 
 		public Pizza() {
@@ -102,7 +102,7 @@ public class Pizza {
 		@Override
 		public String toString() {
 			return "Pizza [id=" + id + ", nimi=" + nimi + ", hinta=" + hinta + ", pohja=" + pohja + ", ainekset="
-					+ ainekset + "]";
+					+ aines + "]";
 		}
 		
 		

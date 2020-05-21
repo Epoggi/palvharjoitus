@@ -13,7 +13,7 @@ import hh.swd20.omaharjoitusNH.domain.Pizza;
 import hh.swd20.omaharjoitusNH.domain.PizzaRepository;
 import hh.swd20.omaharjoitusNH.domain.Pohja;
 import hh.swd20.omaharjoitusNH.domain.PohjaRepository;
-import hh.swd20.omaharjoitusNH.domain.Ainekset;
+import hh.swd20.omaharjoitusNH.domain.Aines;
 import hh.swd20.omaharjoitusNH.domain.AinesRepository;
 
 @SpringBootApplication
@@ -83,13 +83,13 @@ public class BookstoreApplication {
 	public CommandLineRunner pizzaDemo(PizzaRepository piRep, AinesRepository aRep, PohjaRepository poRep) {
 		return (args) -> {
 			log.info("Ainekset");
-			aRep.save(new Ainekset("Tonnikala", "Atlanti"));
-			aRep.save(new Ainekset("Ananas", "Peru"));
-			aRep.save(new Ainekset("Pinaatti", "Suomi"));
+			aRep.save(new Aines("Tonnikala", "Atlanti"));
+			aRep.save(new Aines("Ananas", "Peru"));
+			aRep.save(new Aines("Pinaatti", "Suomi"));
 
 			log.info("fetch all ainekset");
-			for (Ainekset ainekset : aRep.findAll()) {
-				log.info(ainekset.toString());
+			for (Aines aines : aRep.findAll()) {
+				log.info(aines.toString());
 				}
 			log.info("Pohjat");
 			poRep.save(new Pohja("Ruispohja", "norm"));
@@ -98,10 +98,10 @@ public class BookstoreApplication {
 			poRep.save(new Pohja("Vegepohja", "lak"));
 			
 			log.info("Pizzat");
-			piRep.save(new Pizza("Suomalainen", 7.50, poRep.findByNimi("Ruispohja").get(0), aRep.findByNimi("Ananas").get(0)));
+			piRep.save(new Pizza("Suomalainen", 7.50, poRep.findByNimi("Ruispohja").get(0), aRep.findByNimi("Tonnikala").get(0)));
 			piRep.save(new Pizza("Italialainen",8.50,poRep.findByNimi("Vehnäpohja").get(0), aRep.findByNimi("Ananas").get(0)));
 			piRep.save(new Pizza("Karppaaja", 10.00,poRep.findByNimi("Munapohja").get(0), aRep.findByNimi("Ananas").get(0)));
-			piRep.save(new Pizza("Vegeilijä", 15.00, poRep.findByNimi("Vegepohja").get(0), aRep.findByNimi("Ananas").get(0)));
+			piRep.save(new Pizza("Vegeilijä", 15.00, poRep.findByNimi("Vegepohja").get(0), aRep.findByNimi("Pinaatti").get(0)));
 			
 			
 			log.info("fetch all pizzas");
