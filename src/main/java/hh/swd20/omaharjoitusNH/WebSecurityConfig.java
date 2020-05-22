@@ -28,7 +28,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
           .and()
       .formLogin()
           //.loginPage("/login")
-          .defaultSuccessUrl("/pizzat")
+          .defaultSuccessUrl("/pizzas")
           .permitAll()
           .and()
       .logout()
@@ -42,7 +42,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         List<UserDetails> users = new ArrayList();
     	UserDetails user = User.withDefaultPasswordEncoder()
                 .username("user")
-                .password("password")
+                .password("123")
                 .roles("USER")
                 .build();
 
