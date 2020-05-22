@@ -43,7 +43,7 @@ public class Pizza {
 		@JsonIgnore
 		@JoinColumn(name = "ainesid")
 		private Aines aines;
-
+//Monta täytettä = private List<Aines> ainekset, vertaa bookstore List<Book> books;
 		public long getId() {
 			return id;
 		}

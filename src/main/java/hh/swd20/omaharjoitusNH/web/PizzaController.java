@@ -1,6 +1,7 @@
   package hh.swd20.omaharjoitusNH.web;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -9,6 +10,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import hh.swd20.omaharjoitusNH.domain.AinesRepository;
 import hh.swd20.omaharjoitusNH.domain.Pizza;
@@ -64,5 +66,15 @@ public class PizzaController {
 		model.addAttribute("ainekset", aRep.findAll());
 		return "pizzanteko";
 	}
-	
+	//resti metodi, tee lisäksi validointi ja react sivu
+	@RequestMapping(value = "restpizzat", method = RequestMethod.GET)
+	public @ResponseBody List<Pizza> pizzaListRest() {
+		return (List<Pizza>) pizRep.findAll();
+	}
+
+	// Return one with id
+	@RequestMapping(value = "/pizza/{id}", method = RequestMethod.GET)
+	public @ResponseBody Optional<Pizza> findPizzaRest(@PathVariable("id") Long id) {
+		return pizRep.findById(id);
+	}
 }
