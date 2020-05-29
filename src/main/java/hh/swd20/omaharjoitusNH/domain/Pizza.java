@@ -6,32 +6,25 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.validation.constraints.DecimalMax;
+import javax.validation.constraints.DecimalMin;
+import javax.validation.constraints.Size;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-/*
-//h2 testidatabase käyttöön
-//Merkitään olio database olioksi
-@Entity
-public class Book {
-//Atribuutit
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private long id;
-	private String title, author, isbn;
-	private int year;
-	private double price;
+import com.sun.istack.NotNull;
 
-	@ManyToOne
-	@JsonIgnore
-	@JoinColumn(name = "categoryid")
-	private Category category;*/
 @Entity
 public class Pizza {
 	//Atribuutit
 		@Id
 		@GeneratedValue(strategy = GenerationType.AUTO)
 		private long id;
+		@NotNull
+		@Size(min=5, max=15)
 		private String nimi;
+		@NotNull
+		@DecimalMax("15.0") 
+		@DecimalMin("5.0")
 		private double hinta;
 
 		@ManyToOne

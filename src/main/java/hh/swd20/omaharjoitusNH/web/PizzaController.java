@@ -3,9 +3,12 @@
 import java.util.List;
 import java.util.Optional;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -47,8 +50,12 @@ public class PizzaController {
 		return "pizzanteko";
 	}
 	//lomakkeella syötettyjen pizza tietojen tallentaminen
+	//Validointi
 	@RequestMapping(value="/luopizza", method = RequestMethod.POST)
-	public String savePizza(@ModelAttribute Pizza pizza) {
+	public String savePizza(@Valid @ModelAttribute Pizza pizza, BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+        	return "pizzanteko";
+        }
 		pizRep.save(pizza);
 		return "redirect:/pizzas";
 	}
