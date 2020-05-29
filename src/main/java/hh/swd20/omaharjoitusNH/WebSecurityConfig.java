@@ -19,15 +19,14 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
-        .authorizeRequests().antMatchers("/css/**","/", "/pizzat, /restpizzat").permitAll() // Enable css when logged out
+        .authorizeRequests().antMatchers("/css/**","/pizzas", "/restpizzat").permitAll() // Enable css when logged out
         .and()
         .authorizeRequests()
-        .antMatchers("/add", "/save").hasRole("USER")
-        .antMatchers("/delete/{id}").hasRole("ADMIN")
+        .antMatchers("/pizzalomake","/luopizza","/editpizza/{id}").hasRole("USER")
+        .antMatchers("/deletepizza/{id}").hasRole("ADMIN")
           .anyRequest().authenticated()
           .and()
       .formLogin()
-          //.loginPage("/login")
           .defaultSuccessUrl("/pizzas")
           .permitAll()
           .and()
