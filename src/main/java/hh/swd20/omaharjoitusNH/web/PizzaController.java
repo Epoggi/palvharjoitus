@@ -52,10 +52,13 @@ public class PizzaController {
 	//lomakkeella syötettyjen pizza tietojen tallentaminen
 	//Validointi
 	@RequestMapping(value="/luopizza", method = RequestMethod.POST)
-	public String savePizza(@Valid @ModelAttribute Pizza pizza, BindingResult bindingResult) {
+	public String savePizza(@Valid @ModelAttribute Pizza pizza, BindingResult bindingResult, Model model) {
         if (bindingResult.hasErrors()) {
+    		model.addAttribute("pohjat", pRep.findAll());
+    		model.addAttribute("ainekset", aRep.findAll());
         	return "pizzanteko";
         }
+        model.addAttribute("pizza", pizza);
 		pizRep.save(pizza);
 		return "redirect:/pizzas";
 	}

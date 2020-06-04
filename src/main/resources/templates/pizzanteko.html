@@ -10,14 +10,15 @@
 		method="post">
 		<table>
 			<tr>
-				<td>Id: <input type="hidden" th:field="${pizza.id}" /></td>
+				<td>Id: <input type="hidden" th:field="*{id}" /></td>
 			</tr>
 			<tr>
-				<td>Nimi: <input type="text" th:field="${pizza.nimi}" /></td>
+				<td>Nimi: <input type="text" th:field="*{nimi}" /></td>
+				<td th:if="${#fields.hasErrors('nimi')}" th:errors="*{nimi}">Error</td>
 			</tr>
 			<tr>
 				<td>Hinta: <input type="text" th:field="${pizza.hinta}" /></td>
-				<td th:if="${#fields.hasErrors('pizza')}" th:errors="*{msg}">Error</td>
+				<td th:if="${#fields.hasErrors('hinta')}" th:errors="*{hinta}">Error</td>				
 			</tr>
 			<tr>
 				<label for="pohList">Pohja</label>
